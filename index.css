@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    /*font-family: 'Inter', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+#div_lateral_esquerda{
+    background-color: #FFD84F;
+    color: black;
+    width: 25vw;
+    height: 100vh;
+    display: inline-block;
+}
+#div_logo{
+    height: 100px;
+    background-color: darkblue;
+}
+#logo{
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+#div_nome_marca, #div_descricao_marca, #div_cores, #div_formas{
+    margin: 20px 20px;
+}
+#nome_marca{
+    border: 1px solid #d9d5d5;
+    width: auto;
+    height: 100%;
+    float: left;
+    padding: 6px 28px 6px 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-shadow: none;
+}
+#coluna1_descricao, #coluna2_descricao{
+    display: inline-block;
+}
+.color_weel{
+    width: 20px;
+    height: auto;
+}
+#colorpicker1, #colorpicker2{
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-width: 0;
+    background-color: transparent;
+}
+
+#div_gerador{
+    background-color: #FFEBCD;
+    width: 70vw;
+    height: 100vh;
+    display: inline-block;
+}
+.image_generator{
+    width: 150px;
+    height: auto;
+}

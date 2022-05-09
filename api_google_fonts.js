@@ -6,6 +6,7 @@ var secret_key = "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";
 console.clear();
 
 getGoogleFonts();
+
 //Link do JSON: https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDr4xu2z2AEClpluNtKeTghNq8ojrG55r0
 
 function getGoogleFonts() {
@@ -23,20 +24,55 @@ function getGoogleFonts() {
         getVariantFont(json);
         getSubsetFont(json);
         getFilesFont(json);
+        getFileRandomFont();
     });
 }
-
+var arrayFamilies = [];
 /*Famílias das Fontes-------------------------*/
 function getFamilyFont(json1) {
     /*Criei um array com todas as categorias*/
-    var arrayFamilies = [];
     json1.items.forEach(function (font, i) {
         //console.log(font.category);
         arrayFamilies [i] = font.family;
     });
     console.log("Families");
     console.log(arrayFamilies);
+    getRandomFamilyFont();
 }
+
+var string;
+
+var randomFont;
+var randomIndex;
+
+function getRandomFamilyFont() {
+    randomIndex = Math.floor(Math.random() * arrayFamilies.length);
+    randomFont = arrayFamilies[randomIndex];
+    console.log(randomIndex);
+    console.log('choosed font: ', randomFont);
+    return randomFont;
+}
+
+var arrayFilesFonts;
+/*Ficheiros-------------------------*/
+function getFilesFont(json1) {
+    /*Criei um array com todas as categorias*/
+    arrayFilesFonts = [];
+    json1.items.forEach(function (font, i) {
+        //console.log(font.category);
+        arrayFilesFonts [i] = font.files;
+    });
+    console.log("Files Fonts");
+    console.log(arrayFilesFonts);
+}
+
+var fileRandomFont;
+function getFileRandomFont(){
+    fileRandomFont = arrayFilesFonts[randomIndex].regular;
+    console.log('choosed font file: ', fileRandomFont);
+    return fileRandomFont;
+}
+
 
 /*Categorias-------------------------*/
 function getCategoriesFont(json1) {
@@ -122,17 +158,6 @@ function getSubsetFont(json1) { /* Acho que isto não nos interessa */
     console.log(arraySubset);
 }
 
-/*Ficheiros-------------------------*/
-function getFilesFont(json1) {
-    /*Criei um array com todas as categorias*/
-    var arrayFilesFonts = [];
-    json1.items.forEach(function (font, i) {
-        //console.log(font.category);
-        arrayFilesFonts [i] = font.files;
-    });
-    console.log("Files Fonts");
-    console.log(arrayFilesFonts);
-}
 
 
 
