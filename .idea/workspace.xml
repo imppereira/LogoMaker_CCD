@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39533162-7547-464f-a8a6-1db1a2ee930e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logo_maker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algoritmo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_google_fonts.js" beforeDir="false" afterPath="$PROJECT_DIR$/api_google_fonts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/addons/p5.sound.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/addons/p5.sound.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/empty-example/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/empty-example/sketch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/p5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5/p5.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -65,10 +58,18 @@
       <updated>1652088497597</updated>
       <workItem from="1652088498853" duration="327000" />
       <workItem from="1652088868691" duration="5552000" />
+      <workItem from="1652650544573" duration="4292000" />
+      <workItem from="1652689355931" duration="1205000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1652656456040">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1652656456040" />
   </component>
 </project>
