@@ -154,7 +154,7 @@ function getSubsetFont(json1) { /* Acho que isto não nos interessa */
         //console.log(font.category);
         arraySubset [i] = font.subsets;
     });
-    console.log("Subset");
+     console.log("Subset");
     console.log(arraySubset);
 }
 
