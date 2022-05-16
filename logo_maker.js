@@ -20,15 +20,6 @@ var colorInput1;
 var colorInput2;
 var shape;
 
-var link = document.createElement('link');
-link.type = 'text/css';
-link.rel = 'stylesheet';
-
-link.href = "https://fonts.googleapis.com/css2?family=" + randomFont + ":wght@300&display=swap";
-document.head.appendChild(link);
-
-
-
 function preload() {
 
 }
@@ -39,10 +30,9 @@ function setup() {
     frameRate(30);
 
     //TEXT
-    //TO DO: Ir buscar fonts API
-    //font = loadFont(fileRandomFont);
+    console.log('font ttf ', localStorage.getItem("fileRandomFontStorage"));
+    font = loadFont(localStorage.getItem("fileRandomFontStorage"));
 
-    //font = loadFont("Roboto Flex");
 
     textLogo = "Olááá";
     textW = textWidth(textLogo);
@@ -73,7 +63,7 @@ colorInput1.onchange = function () {
     console.log('CORRRRR COR COR' + colorInput1.value);
 }
 
-var colorWell;
+/*var colorWell;
 var defaultColor = "#0000ff";
 
 window.addEventListener("load", startup, false);
@@ -98,7 +88,7 @@ function updateAll(event) {
     document.querySelectorAll("p").forEach(function (p) {
         p.style.color = event.target.value;
     });
-}
+}*/
 
 function draw() {
     background(255);
@@ -114,9 +104,7 @@ function TextLogo() {
     //TO DO: Preto (ver se há sobreposição com forma preta)
     fill(0);
     textAlign(CENTER);
-    //TO DO: Alteração da fonte random API
-    textFont(randomFont);
-    //textFont('Poppins');
+    textFont(font);
     text(textLogo, xText, yText);
 }
 

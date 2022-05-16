@@ -16,7 +16,7 @@ function getGoogleFonts() {
         .then(function (response) {
             return response.json();
         }).then(function (json) {
-        console.log(json);
+        //COMENTEI console.log(json);
         // console.log(json.items[0].family);
 
         getFamilyFont(json);
@@ -35,8 +35,8 @@ function getFamilyFont(json1) {
         //console.log(font.category);
         arrayFamilies [i] = font.family;
     });
-    console.log("Families");
-    console.log(arrayFamilies);
+    //COMENTEI console.log("Families");
+    //COMENTEI console.log(arrayFamilies);
     getRandomFamilyFont();
 }
 
@@ -48,8 +48,8 @@ var randomIndex;
 function getRandomFamilyFont() {
     randomIndex = Math.floor(Math.random() * arrayFamilies.length);
     randomFont = arrayFamilies[randomIndex];
-    console.log(randomIndex);
-    console.log('choosed font: ', randomFont);
+    console.log('choosed font index:',randomIndex);
+    console.log('choosed font:', randomFont);
     return randomFont;
 }
 
@@ -62,14 +62,15 @@ function getFilesFont(json1) {
         //console.log(font.category);
         arrayFilesFonts [i] = font.files;
     });
-    console.log("Files Fonts");
-    console.log(arrayFilesFonts);
+    //COMENTEI console.log("Files Fonts");
+    //COMENTEI console.log(arrayFilesFonts);
 }
 
 var fileRandomFont;
 function getFileRandomFont(){
     fileRandomFont = arrayFilesFonts[randomIndex].regular;
-    console.log('choosed font file: ', fileRandomFont);
+    console.log('choosed font file:', fileRandomFont);
+    localStorage.setItem("fileRandomFontStorage", fileRandomFont);
     return fileRandomFont;
 }
 
@@ -82,15 +83,15 @@ function getCategoriesFont(json1) {
         //console.log(font.category);
         arrayCategories [i] = font.category;
     });
-    console.log("Categories");
-    console.log(arrayCategories);
+    //COMENTEI console.log("Categories");
+    //COMENTEI console.log(arrayCategories);
 
     /*Informa-me quais as diferentes categorias, sem repetições*/
     var uniqueCategories = arrayCategories.filter(function (value, index, self) {
         return self.indexOf(value) === index;
     });
-    console.log("Unique Categories");
-    console.log(uniqueCategories);
+    //COMENTEI console.log("Unique Categories");
+    //COMENTEI console.log(uniqueCategories);
 }
 
 
@@ -99,35 +100,35 @@ function getFontSerif(json1) {
     let filtro = json1.items.filter(function (font) {
         return font.category == "serif";
     });
-    console.log(filtro);
+    //COMENTEI console.log(filtro);
 }
 
 function getFontSansSerif(json1) {
     let filtro = json1.items.filter(function (font) {
         return font.category == "sans-serif";
     });
-    console.log(filtro);
+    //COMENTEI console.log(filtro);
 }
 
 function getFontDisplay(json1) {
     let filtro = json1.items.filter(function (font) {
         return font.category == "display";
     });
-    console.log(filtro);
+    //COMENTEI console.log(filtro);
 }
 
 function getFontHandwriting(json1) {
     let filtro = json1.items.filter(function (font) {
         return font.category == "handwriting";
     });
-    console.log(filtro);
+    //COMENTEI console.log(filtro);
 }
 
 function getFontMonospace(json1) {
     let filtro = json1.items.filter(function (font) {
         return font.category == "monospace";
     });
-    console.log(filtro);
+    //COMENTEI console.log(filtro);
 }
 
 
@@ -143,8 +144,8 @@ function getVariantFont(json1) {
         //console.log(font.category);
         arrayVariants [i] = font.variants;
     });
-    console.log("Variants");
-    console.log(arrayVariants);
+    //COMENTEI console.log("Variants");
+    //COMENTEI console.log(arrayVariants);
 } /*Aqui podemos organizar por regulares, 500, 600, e os diferentes pesos*/
 
 function getSubsetFont(json1) { /* Acho que isto não nos interessa */
@@ -154,8 +155,8 @@ function getSubsetFont(json1) { /* Acho que isto não nos interessa */
         //console.log(font.category);
         arraySubset [i] = font.subsets;
     });
-     console.log("Subset");
-    console.log(arraySubset);
+    //COMENTEI console.log("Subset");
+    //COMENTEI console.log(arraySubset);
 }
 
 
