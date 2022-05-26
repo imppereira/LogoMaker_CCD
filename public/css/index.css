@@ -5,8 +5,17 @@ body{
     font-weight: 300;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
-#div_lateral_esquerda{
+
+/* #settings{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+} */
+
+
+/* #div_lateral_esquerda{
     background-color: #FFD84F;
     color: black;
     width: 25vw;
@@ -126,7 +135,8 @@ body{
     top:50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
 /*http://jsfiddle.net/6ReTK/10/*/
-#div1:hover #div_like1, #div2:hover #div_like2, #div3:hover #div_like3, #div4:hover #div_like4{
+/* #div1:hover #div_like1, #div2:hover #div_like2, #div3:hover #div_like3, #div4:hover #div_like4{
     display:block;
-}
+}  */

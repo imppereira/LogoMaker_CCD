@@ -1,6 +1,3 @@
-let canvas;
-var widthCanvas;
-var heightCanvas;
 
 //TEXT
 var font;
@@ -10,21 +7,90 @@ var textW;
 var xText;
 var yText;
 
-//SHAPE
-var xShape;
-var yShape;
-var shapeW;
-var shapeH;
-var c;
-var colorInput1;
-var colorInput2;
-var shape;
+//input 
+let input;
 
-//ICONS 
+//logos 
 let icon; 
+let button;
+let sideDiv;
+let container;
+let inputValue = 'dog';
 
+let valueExport = false;
+
+function preload() {
+
+// httpGet('https://api.conceptnet.io/related/c/en/'+inputValue+'?filter=/c/en', 'json', false, function(data){
+// for(let i =0; i <5; i++){     
+// console.log(data.related[i]);
+// }
+//  });
+}
+
+function setup() {
+    stroke(255);
+    frameRate(30);
+
+    //TEXT
+    console.log('font ttf ', localStorage.getItem("fileRandomFontStorage"));
+    font = loadFont(localStorage.getItem("fileRandomFontStorage"));
+
+
+    // textLogo = "GOATS";
+    // textW = textWidth(textLogo);
+
+    // //TO DO: Alterar tamanho fonte!!
+    // textSize = 12;
+    // if (textW > widthCanvas) {
+    //     textSize = 5;
+    // }
+
+    //Container do conjunto de logos criados
+    container = createDiv();
+    container.style('width', '60%');
+    container.style('height', '100%');
+    container.style('position', 'absolute');
+    container.style('left', '35%');
+    container.style('top', '7.5%');
+    
+    
+    //Barra lateral 
+    sideDiv = createDiv();
+    sideDiv.id("settings");
+    sideDiv.style('width', '20%');
+    sideDiv.style('height', '100%');
+    sideDiv.style('background-color', '#ffe61d');
+    sideDiv.style('position', 'absolute');
+    sideDiv.style('top', '0');
+    sideDiv.style('left', '0');
+
+    input = createInput();
+    input.id("BrandInput");
+    input.style('border', 'none');
+    input.style('border-bottom', '2px solid black');
+    input.style('background-color', 'transparent');
+    inputValue = input.value();
+    
+    button = createButton('Generate');
+    button.id("submit");
+    button.value("Submit");
+    button.mousePressed(loadInfo);
+
+    input.parent(sideDiv);
+    button.parent(sideDiv); 
+}
+
+function draw() {
+}
+
+
+  module.exports = inputValue;
+
+//Load info do APK
 function loadInfo () {
-    fetch('/dog').then(function(res) {
+    valueExport = true;
+    fetch('/'+input.value()).then(function(res) {
        return res.json();
     }).then(function (data) {
         console.log(data);
@@ -36,119 +102,50 @@ function loadInfo () {
     })
 }
 
-function preload() {
-}
 
-function setup() {
-
-    // widthCanvas = 100;
-    // heightCanvas = 100;
-    // canvas = createCanvas(widthCanvas, heightCanvas);
-    stroke(255);
-    frameRate(30);
-
-    
-    loadInfo();
-
-    //TEXT
-    console.log('font ttf ', localStorage.getItem("fileRandomFontStorage"));
-    font = loadFont(localStorage.getItem("fileRandomFontStorage"));
-
-
-    textLogo = "GOATS";
-    textW = textWidth(textLogo);
-    // xText = random(textW / 2 + 10, widthCanvas - textW / 2 - 10);
-    // yText = random(10, heightCanvas - 10);
-
-    //TO DO: Alterar tamanho fonte!!
-    textSize = 12;
-    if (textW > widthCanvas) {
-        textSize = 5;
-    }
-
-    //SHAPE
-    //TO DO: Ir buscar a cor da forma ao input!
-    c = color(200, 40, 30);
-    //TO DO: Ir buscar imagem à API Noun Project
-    //shape = loadImage('assets/laDefense.jpg');
-    shapeW = random(widthCanvas / 4, widthCanvas - 10);
-    shapeH = random(heightCanvas / 4, heightCanvas - 10);
-    xShape = random(shapeW / 2 + 10, widthCanvas - shapeW / 2 - 10);
-    yShape = random(shapeH / 2 + 10, heightCanvas - shapeH / 2 - 10);
-}
-
-function draw() {
-    // background(255);
-
-    // //Text
-    // // TextLogo();
-
-    // //Shape
-    // ShapeLogo();
-}
-
-
-function TextLogo() {
-    //TO DO: Preto (ver se há sobreposição com forma preta)
-    fill(0);
-    textAlign(CENTER);
-    textFont(font);
-    text(textLogo, xText, yText);
-}
-
-
-//"canvas" onde irá ser desenhado o icon + texto
+//"canvas"/div onde irá ser desenhado o icon + texto
 function drawIcon(url){
     let boxArea = createDiv();
     let icon = createImg(url);
-    let text = createSpan(textLogo);
+    let text = createSpan(input.value());
 
-    boxArea.style('width', '200px');
-    boxArea.style('height', '200px');
+    boxArea.class('genBox');
+    boxArea.style('width', '100px');
+    boxArea.style('height', '100px');
+    boxArea.style('position', 'relative');
+    boxArea.style('display', 'inline-block');
+    boxArea.style('margin', '3% 3% 3% 3%');
 
-    xText = random(text.width/2, boxArea.width - text.width);
+    icon.style('width', '100%');
+    icon.style('height', 'auto');
+
+    xText = random(0, boxArea.width);
     yText = random(10, boxArea.height);
 
-    // xText = random(textW / 2 + 10, widthCanvas - textW / 2 - 10);
-    // yText = random(10, heightCanvas - 10);
     
     text.position(xText, yText);
-    text.style('font-family', loadFont(localStorage.getItem("fileRandomFontStorage")));
+    // text.style('font-family', loadFont(localStorage.getItem("fileRandomFontStorage")));
+    // head.appendChild(document.createElement('link').setAttribute('href', fileRandomFont));
+    text.style('font-family', randomFont);
 
     text.parent(boxArea);
     icon.parent(boxArea);
+    boxArea.parent(container);
+
 }
 
-// colorInput1 = document.getElementById("colorpicker1");
-// colorInput2 = document.getElementById("colorpicker2").value;
-
-// colorInput1.onchange = function () {
-//     console.log('CORRRRR COR COR' + colorInput1.value);
+// function TextLogo() {
+//     //TO DO: Preto (ver se há sobreposição com forma preta)
+//     fill(0);
+//     textAlign(CENTER);
+//     textFont(font);
+//     text(textLogo, xText, yText);
 // }
-
-/*var colorWell;
-var defaultColor = "#0000ff";
-
-window.addEventListener("load", startup, false);
-
-function startup() {
-    colorWell = document.querySelector("#colorWell");
-    colorWell.value = defaultColor;
-    colorWell.addEventListener("input", updateFirst, false);
-    colorWell.addEventListener("change", updateAll, false);
-    colorWell.select();
-}
-
-function updateFirst(event) {
-    var p = document.querySelector("p");
-
-    if (p) {
-        p.style.color = event.target.value;
-    }
-}
-
-function updateAll(event) {
-    document.querySelectorAll("p").forEach(function (p) {
-        p.style.color = event.target.value;
-    });
-}*/
+// //callback function for entry1
+// function entryCallback() {
+//     for (let i = 0; i < 25; i++) {
+//       text(entry1.value(), random(width),
+//             random(height));
+//     }
+  
+//   }

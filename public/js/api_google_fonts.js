@@ -44,10 +44,12 @@ var string;
 
 var randomFont;
 var randomIndex;
+var serifSans;
 
 function getRandomFamilyFont() {
     randomIndex = Math.floor(Math.random() * arrayFamilies.length);
     randomFont = arrayFamilies[randomIndex];
+    console.log('choosed category:', randomIndex.category);
     console.log('choosed font index:',randomIndex);
     console.log('choosed font:', randomFont);
     return randomFont;
